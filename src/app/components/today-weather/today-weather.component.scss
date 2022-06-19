@@ -1,0 +1,132 @@
+$main-text: darkred;
+$content-text: darkslategrey;
+$main-background: rgba(211, 211, 211, 0.8);
+$black: black;
+
+@mixin flex-between () {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin middle-container () {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@mixin font-size-uppercase () {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.weather-content {
+  @include middle-container;
+  background-color: $main-background;
+  box-shadow: 0px 0px 10px 5px;
+  margin-bottom: 1.1rem;
+  .weather-content-header {
+    @include flex-between;
+    @include middle-container;
+    padding-top: 0.8rem;
+    .weather-content-header-item {
+      @include font-size-uppercase;
+      color: $main-text;
+    }
+  }
+  .weather-content-main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.1rem;
+    color: $content-text;
+    padding-bottom: 0.8rem;
+    .image-container {
+      width: 10%;
+      text-align: center;
+      .current-image {
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .temperature-container {
+      width: 35%;
+      text-align: center;
+      .temperature {
+        font-size: 2.8rem;
+        color: $black;
+        margin-bottom: 0.8rem;
+      }
+    }
+    .wind-container {
+      width: 20%;
+      div {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $content-text;
+        &:not(:first-child) {
+          margin-top: 0.8rem;
+        }
+      }
+    }
+    .sun-container {
+      width: 20%;
+      div {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $content-text;
+        &:not(:first-child) {
+          margin-top: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .weather-content {
+    .weather-content-main {
+      font-size: 1rem;
+      flex-wrap: wrap;
+      .image-container {
+        width: 40%;
+        .current-image {
+          img {
+            height: 5rem;
+            width: auto;
+          }
+        }
+      }
+      .temperature-container {
+        width: 40%;
+      }
+      .wind-container {
+        width: 35%;
+        div {
+          margin-top: 0.8rem;
+        }
+      }
+      .sun-container {
+        width: 35%;
+        div {
+          margin-top: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-content {
+    .weather-content-main {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .weather-content {
+    .weather-content-main {
+      font-size: 0.7rem;
+    }
+  }
+}

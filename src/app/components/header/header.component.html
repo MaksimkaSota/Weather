@@ -1,0 +1,7 @@
+<div class="header">
+  <h1 class="title">Моя погода</h1>
+  <div class="search-container">
+    <input class="input-search" type="search" [value]='cityName' (input)="changeCityName($event)"/>
+    <button class="button-search" (click)="getWeather()"><img src="../../../assets/images/magnifying-glass-solid.svg" alt=""></button>
+  </div>
+</div>

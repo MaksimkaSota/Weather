@@ -1,0 +1,18 @@
+<div class="container-hourly-weather" *ngIf="hourlyWeatherGlobal?.length">
+  <div class="hourly-weather">
+    <h3 class="title">Почасовая погода на {{getDate(hourlyWeatherGlobal[0].dt_txt)}}</h3>
+    <div class="hourly-weather-content">
+      <div class='item' *ngFor="let hourly of hourlyWeatherGlobal">
+        <p class="time">{{getTime(hourly.dt_txt)}}</p>
+        <div class="image-conteiner">
+          <img src={{getImg(hourly.weather[0].icon)}} alt="weather-image"/>
+        </div>
+        <p class="description">{{hourly.weather[0].description}}</p>
+        <p class="temperature">{{getTemperatyre(hourly.main.temp)}}&#8451;</p>
+        <p class="feels-like-temperature">Ощущается: {{getTemperatyre(hourly.main.feels_like)}}&#8451;</p>
+        <p>Ветер: {{getWind(hourly.wind.speed)}} м/c</p>
+      </div>
+    </div>
+  </div>
+</div>
+

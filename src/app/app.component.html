@@ -1,0 +1,24 @@
+<app-header (onTodayWeather)="addTodayWeather($event)"
+            (onFiveDayWeather)="addFiveDayWeather($event)"
+            (onError)="addErrorStatus($event)">
+</app-header>
+
+<app-today-weather *ngIf="todayWeatherGlobal"
+                   [todayWeatherGlobal]="todayWeatherGlobal" >
+</app-today-weather>
+
+<app-five-day-weather *ngIf="todayFiveDayWeatherGlobal"
+                      [todayFiveDayWeatherGlobal]="todayFiveDayWeatherGlobal"
+                      (onHourlyWeather)="addHourlyWeather($event)">
+</app-five-day-weather>
+
+<app-hourly-weather *ngIf="hourlyWeatherGlobal"
+                    [hourlyWeatherGlobal]="hourlyWeatherGlobal"
+                    (click)="closeContainer($event, 'container-hourly-weather')">
+</app-hourly-weather>
+
+<app-error *ngIf="errorStatusGlobal"
+           [errorStatusGlobal]="errorStatusGlobal"
+           (click)="closeErrorContainer($event, 'error-container')">
+</app-error>
+

@@ -1,0 +1,46 @@
+<div class="weather-content">
+  <div class="weather-content-header">
+    <h3 class="weather-content-header-item">Текущая погода: {{todayWeatherGlobal.name}}</h3>
+    <h3 class="weather-content-header-item">{{getDate(todayWeatherGlobal.dt)}}</h3>
+  </div>
+  <div class="weather-content-main">
+    <div class="image-container">
+      <div id="current-image" class="current-image">
+        <img src={{getImg(todayWeatherGlobal.weather[0].icon)}} alt="weather-image"/>
+      </div>
+      <p>{{todayWeatherGlobal.weather[0].description}}</p>
+    </div>
+    <div class="temperature-container">
+      <p class="temperature"><span>{{getTemperatyre(todayWeatherGlobal.main.temp)}}</span>&#8451;</p>
+      <p>Ощущается как <span>{{getTemperatyre(todayWeatherGlobal.main.feels_like)}}</span> &#8451;</p>
+    </div>
+    <div class="wind-container">
+      <div>
+        <p>Ветер:</p>
+        <p>{{getWind(todayWeatherGlobal.wind.speed)}} м/c</p>
+      </div>
+      <div>
+        <p>Порывы:</p>
+        <p>{{getWind(todayWeatherGlobal.wind.gust)}} м/c</p>
+      </div>
+      <div>
+        <p>Направление:</p>
+        <p>{{getWindDestination(todayWeatherGlobal.wind.deg)}}</p>
+      </div>
+    </div>
+    <div class="sun-container">
+      <div>
+        <p>Восход:</p>
+        <p>{{getTime(todayWeatherGlobal.sys.sunrise)}}</p>
+      </div>
+      <div>
+        <p>Закат:</p>
+        <p>{{getTime(todayWeatherGlobal.sys.sunset)}}</p>
+      </div>
+      <div>
+        <p>Длительность:</p>
+        <p>{{getDurationTime(todayWeatherGlobal.sys.sunset - todayWeatherGlobal.sys.sunrise)}}</p>
+      </div>
+    </div>
+  </div>
+</div>
