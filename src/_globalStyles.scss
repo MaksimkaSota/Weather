@@ -1,0 +1,12 @@
+$main-text: darkred;
+$main-background: rgba(211, 211, 211, 0.8);
+
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+%middle-container {
+  width: 90%;
+  margin: 0 auto;
+}

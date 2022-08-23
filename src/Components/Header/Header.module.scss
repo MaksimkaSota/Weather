@@ -1,0 +1,50 @@
+@use "src/globalStyles" as global;
+
+.header  {
+  @extend %flex-between;
+  @extend %middle-container;
+  margin-bottom: 1.1rem;
+  padding-top: 0.8rem;
+  .title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: global.$main-text;
+  }
+  .searchContainer {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    box-shadow: 0 0 10px 5px;
+    .inputSearch {
+      height: 100%;
+      background-color: global.$main-background;
+      border: none;
+      font-size: 0.8rem;
+      color: global.$main-text;
+      padding-left: 0.8rem;
+    }
+    .buttonSearch {
+      height: 100%;
+      width: 30px;
+      cursor: pointer;
+      background-color: global.$main-background;
+      border: none;
+      img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header  {
+    flex-direction: column;
+    align-items: center;
+    .title {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+}
