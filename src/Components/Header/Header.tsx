@@ -1,7 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import { useActions } from "../../Hooks/useActions";
 import search from "../../images/search.svg";
-import { useTypedSelector } from "../../Hooks/useTypeSelector";
 import classes from "./Header.module.scss";
 
 const Header = () => {
@@ -12,13 +11,10 @@ const Header = () => {
 
   useEffect(() => {
     getWeatherToday(cityName);
+    getWeatherFiveDay(cityName);
   }, []);
 
-  const { weatherToday } = useTypedSelector((state) => state.weatherToday);
-
-  console.log(weatherToday);
-
-  const { getWeatherToday } = useActions();
+  const { getWeatherToday, getWeatherFiveDay } = useActions();
   return (
     <div className={classes.header}>
       <h1 className={classes.title}>Моя погода</h1>
@@ -26,7 +22,7 @@ const Header = () => {
         <input
           className={classes.inputSearch}
           type="search"
-          value="Минск"
+          value={cityName}
           onChange={(event) => getCityName(event)}
         />
         <button

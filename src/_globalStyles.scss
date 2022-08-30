@@ -1,5 +1,7 @@
 $main-text: darkred;
 $main-background: rgba(211, 211, 211, 0.8);
+$content-text: darkslategrey;
+$black: black;
 
 %flex-between {
   display: flex;
@@ -9,4 +11,9 @@ $main-background: rgba(211, 211, 211, 0.8);
 %middle-container {
   width: 90%;
   margin: 0 auto;
+}
+
+%font-size-uppercase {
+  font-size: 1.1rem;
+  text-transform: uppercase;
 }

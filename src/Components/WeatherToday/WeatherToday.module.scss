@@ -1,0 +1,122 @@
+@use "src/globalStyles" as global;
+
+.weatherContent {
+  @extend %middle-container;
+  background-color: global.$main-background;
+  box-shadow: 0 0 10px 5px;
+  margin-bottom: 1.1rem;
+  .weatherContentHeader {
+    @extend %flex-between;
+    @extend %middle-container;
+    padding-top: 0.8rem;
+    .weatherContentHeaderItem {
+      @extend %font-size-uppercase;
+      color: global.$main-text;
+    }
+  }
+  .weatherContentMain {
+    @extend %flex-between;
+    @extend %middle-container;
+    align-items: center;
+    font-size: 1.1rem;
+    color: global.$content-text;
+    padding-bottom: 0.8rem;
+    .image-container {
+      width: 10%;
+      text-align: center;
+      .current-image {
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .temperatureContainer {
+      width: 20%;
+      text-align: center;
+      .temperature {
+        font-size: 2.8rem;
+        color: global.$black;
+        margin-bottom: 0.8rem;
+      }
+    }
+    .windContainer {
+      width: 20%;
+      div {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid global.$content-text;
+        &:not(:first-child) {
+          margin-top: 0.8rem;
+        }
+      }
+    }
+    .sunContainer {
+      width: 20%;
+      div {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid global.$content-text;
+        &:not(:first-child) {
+          margin-top: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .weatherContent {
+    .weatherContentMain {
+      font-size: 1rem;
+      flex-wrap: wrap;
+      .image-container {
+        width: 45%;
+        .currentImage {
+          img {
+            height: 5rem;
+            width: auto;
+          }
+        }
+      }
+      .temperatureContainer {
+        width: 45%;
+      }
+      .windContainer {
+        width: 45%;
+        div {
+          margin-top: 0.8rem;
+        }
+      }
+      .sunContainer {
+        width: 45%;
+        div {
+          margin-top: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .weatherContent {
+    .weatherContentHeader {
+      .weatherContentHeaderItem {
+        font-size: 0.9rem;
+      }
+    }
+    .weatherContentMain {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .weatherContent {
+    .weatherContentHeader {
+      font-size: 0.8rem;
+    }
+    .weatherContentMain {
+      font-size: 0.7rem;
+    }
+  }
+}
